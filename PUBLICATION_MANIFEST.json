@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-05",
+  "title": "Book return stack console system",
+  "runtime_verified_for_publication": false,
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "3721e78dcec2ed851ef34634a4258950e348ba18511f17e2acbb2793b066fc58",
+      "bytes": 566
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "bytes": 1056
+    },
+    {
+      "path": "main.cpp",
+      "sha256": "bf53201157cc244aa00e9f1bf3d23abf54235c2ab54847a9255d5537e8dab9de",
+      "bytes": 3661
+    },
+    {
+      "path": "README.md",
+      "sha256": "11477a2d0bb84d03bd726de2081fa63a70f8bd17b69793adf64b761615faa3f0",
+      "bytes": 1600
+    }
+  ]
+}
