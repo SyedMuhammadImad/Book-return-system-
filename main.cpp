@@ -3,6 +3,7 @@
 // and processed for shelving in LIFO order.
 
 #include <iostream>
+#include <limits>
 #include <string>
 using namespace std;
 
@@ -23,6 +24,10 @@ public:
         stackArray = new Book[capacity];
         top = -1;
     }
+
+    ~Stack() { delete[] stackArray; }
+    Stack(const Stack&) = delete;
+    Stack& operator=(const Stack&) = delete;
 
     void push(Book& book) {
         if (top == capacity - 1) {
@@ -88,19 +93,24 @@ int main() {
         cout << "4. Print Receipt of Books" << endl;
         cout << "5. Exit" << endl;
         cout << "Enter your choice: ";
-        cin >> choice;
+        if (!(cin >> choice)) {
+            if (cin.eof()) break;
+            cerr << "Invalid input: enter a menu number." << endl;
+            cin.clear(); cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
         cout << endl;
 
         switch (choice) {
             case 1: {
                 Book newBook;
                 cout << "Enter book title: ";
-                cin.ignore();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 getline(cin, newBook.title);
                 cout << "Enter book author: ";
                 getline(cin, newBook.author);
                 cout << "Enter year of publication: ";
-                cin >> newBook.year;
+                if (!(cin >> newBook.year)) { cerr << "Invalid year." << endl; cin.clear(); cin.ignore(numeric_limits<streamsize>::max(), '\n'); break; }
                 stack.push(newBook);
                 cout << endl;
                 break;
